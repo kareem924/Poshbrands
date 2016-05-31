@@ -1,0 +1,56 @@
+﻿@model BlogApp.Models.UserRoleViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Change Roles</h2>
+
+@Html.ValidationSummary()
+<p class="text-success">
+    @ViewBag.Message
+</p>
+<fieldset class="panel panel-info">
+    <legend class="panel-heading">User Info </legend>
+    <div class="panel-body">
+        <span>
+            User Name :   @Model.UserName
+        </span>
+    </div>
+</fieldset>
+<br />
+<fieldset class="panel panel-info">
+    <legend class="panel-heading">User Roles </legend>
+    <div class="panel-body">
+        <ul>
+            @foreach (var role in Model.Roles)
+            {
+                <li>@role.RoleName</li>
+            }
+        </ul>
+    </div>
+</fieldset>
+<br />
+<fieldset class="panel panel-primary">
+    <legend class="panel-heading">Add To Role </legend>
+    <div class="panel-body form-group ">
+        @using (Html.BeginForm("AddToRole", "Users"))
+        {
+            @Html.DropDownList("roleName", null, new { @class = "form-control col-lg-10" })
+            @Html.HiddenFor(model => model.UserId)
+            <input type="submit" name="name" value="Add" class="btn btn-primary " />
+        }
+    </div>
+</fieldset>
+
+<fieldset class="panel panel-danger">
+    <legend class="panel-heading">Remove From Role </legend>
+    <div class="panel-body form-group ">
+        @using (Html.BeginForm("RemoveFromRole", "Users"))
+        {
+            @Html.DropDownList("roleName", null, new { @class = "form-control col-lg-10" })
+            @Html.HiddenFor(model => model.UserId)
+            <input type="submit" name="name" value="Remove" class="btn btn-danger " />
+        }
+    </div>
+</fieldset>

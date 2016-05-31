@@ -1,0 +1,17 @@
+﻿@model BlogApp.Models.Job
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "Jobs", FormMethod.Post))
+{      <br />
+    <br />
+    <legend>Create new Job</legend>
+    @Html.Partial("_CreateOrUpdate", Model)
+
+}
+
+

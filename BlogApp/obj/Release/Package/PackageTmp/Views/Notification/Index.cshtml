@@ -1,0 +1,222 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        <ul class="nav nav-tabs" role="tablist" id="accountTab">
+            <li class="active"><a href="#notifications" role="tab" data-toggle="tab">Applied Jobs</a></li>
+            <li><a href="#linkedAccounts" role="tab" data-toggle="tab">Contact Us</a></li>
+            <li><a href="#passwordReset" role="tab" data-toggle="tab">Customer Service</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="notifications">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+
+
+                            <th> Notifcation</th>
+                            <th>  Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var Job in ViewBag.onePageOfJobs)
+            {
+                        <tbody class="table-bordered">
+                            <tr>
+
+                                <td><a href="@Url.Action("AppliedJob", "Jobs",new {id=Job.TypeId})"> @Job.Title</a></td>
+                                <td> @Job.CreatedAt</td>
+
+                                <td>
+                                    @if (!Job.IsDissmissed)
+                                    {
+                                        <div class="btn-group">
+                                            <a class="btn btn-success btn-sm" href="javascript:updateNotification(@Job.NotificationId, 'read')">Mark as Read</a>
+                                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="javascript:confirmDelete(@Job.NotificationId)">Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-danger btn-sm" href="javascript:confirmDelete(@Job.NotificationId)">Delete</a>
+                                    }
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    }
+
+                </table>
+                <div class="pagedList">
+                    @Html.PagedListPager((IPagedList)ViewBag.onePageOfJobs, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+            <div class="tab-pane " id="linkedAccounts">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+
+
+                            <th> Notifcation</th>
+                            <th>  Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var Job in ViewBag.onePageOfContactUs)
+            {
+                        <tbody class="table-bordered">
+                            <tr>
+
+                                <td><a href="@Url.Action("ContactUsDetail", "Home",new {id=Job.TypeId})"> @Job.Title</a></td>
+                                <td> @Job.CreatedAt</td>
+
+                                <td>
+                                    @if (!Job.IsDissmissed)
+                                    {
+                                    <div class="btn-group">
+                                        <a class="btn btn-success btn-sm" href="javascript:updateNotification(@Job.NotificationId, 'read')">Mark as Read</a>
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="javascript:confirmDelete(@Job.NotificationId)">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    }
+                                    else
+                                    {
+                                    <a class="btn btn-danger btn-sm" href="javascript:confirmDelete(@Job.NotificationId)">Delete</a>
+                                    }
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    }
+
+                </table>
+                <div class="pagedList">
+                    @Html.PagedListPager((IPagedList)ViewBag.onePageOfContactUs, conPage => Url.Action("Index", new { conPage }))
+                </div>
+            </div>
+            <div class="tab-pane " id="passwordReset">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+
+
+                            <th> Notifcation</th>
+                            <th>  Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var Job in ViewBag.onePageOfCustomer)
+            {
+                        <tbody class="table-bordered">
+                            <tr>
+
+                                <td><a href="@Url.Action("AppliedJob", "Jobs",new {id=Job.TypeId})"> @Job.Title</a></td>
+                                <td> @Job.CreatedAt</td>
+
+                                <td>
+                                    @if (!Job.IsDissmissed)
+                                    {
+                                        <div class="btn-group">
+                                            <a class="btn btn-success btn-sm" href="javascript:updateNotification(@Job.NotificationId, 'read')">Mark as Read</a>
+                                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="javascript:confirmDelete(@Job.NotificationId)">Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-danger btn-sm" href="javascript:confirmDelete(@Job.NotificationId)">Delete</a>
+                                    }
+                                </td>
+
+                            </tr>
+                        </tbody>
+
+                    }
+
+                </table>
+                <div class="pagedList">
+                    @Html.PagedListPager((IPagedList)ViewBag.onePageOfCustomer, cusPage => Url.Action("Index", new { cusPage }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="notificationForm" method="POST"><input type="hidden" name="id" id="notificationFormItemId" /></form>
+
+@{ Html.RenderPartial("_RenderNotificationsModalPreview"); }
+
+
+
+<script type="text/javascript">
+
+    var readUrl = '@Url.Action("MarkNotificationAsRead")';
+    var deleteUrl = '@Url.Action("Delete")';
+    var confirmUrl = '@Url.Action("GetNotification")';
+    var previewContainer = $('#deleteConfirmModal #notificationPreview');
+    var currentNotificationId;
+
+    function updateNotification(id, action) {
+        $("#notificationFormItemId").val(id);
+        switch (action) {
+            case 'read':
+                $("#notificationForm").attr('action', readUrl).submit();
+                break;
+            case 'delete':
+                $("#notificationForm").attr('action', deleteUrl).submit();
+                break;
+            default:
+                console.debug('Unknown action ' + action);
+        }
+    }
+
+    function confirmDelete(id) {
+        currentNotificationId = id;
+        previewContainer.html('<p>Loading content...</p>');
+        previewContainer.load(confirmUrl, { id: currentNotificationId });
+        $('#deleteConfirmModal').modal('show');
+    }
+
+    $(function () {
+        $("#deleteConfirmModal").on('click', "#deleteConfirm", function () {
+            updateNotification(currentNotificationId, 'delete');
+        });
+    });
+
+</script>

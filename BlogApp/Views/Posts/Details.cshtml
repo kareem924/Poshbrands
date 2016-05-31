@@ -1,0 +1,59 @@
+﻿@model BlogApp.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@if (User.IsInRole("Managers"))
+{
+    @Html.ActionLink("Delete", "Delete", "Posts", new { id = Model.ID }, new { @class = "btn btn-danger" })
+}
+else if (User.IsInRole("Authors"))
+{
+    @Html.ActionLink("Edit", "Edit", "Posts", new { id = Model.ID }, new { @class = "btn btn-info" })
+}
+<article>
+    <div class="panel panel-default">
+        <div class="panel-body panel-heading">
+            <h4>@Html.DisplayTextFor(model => model.Title)</h4>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-body ">
+            <div>
+                @Html.Raw(Model.Content)
+            </div>
+            <hr />
+
+            <section>
+                @if (Model.Tags.Count > 0)
+                {
+                    <div class="panel panel-info">
+                        <div class="panel-body panel-heading">
+                            <ul>
+                                <strong> Tags :</strong>
+                                @foreach (var tag in Model.Tags)
+                                {
+                                    <li class="btn btn-default">
+                                        <a href="/Posts/Tags/@tag.ID">  @tag.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </section>
+
+            <section>
+                <fieldset>
+                    <legend>
+                        Comments
+                    </legend>
+                    <div>
+                        @Html.Partial("DisplayComments")
+                    </div>
+                </fieldset>
+            </section>
+        </div>
+    </div>
+</article>

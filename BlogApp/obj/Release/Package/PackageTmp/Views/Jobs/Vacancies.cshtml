@@ -1,0 +1,178 @@
+﻿@model IEnumerable<BlogApp.Models.Job>
+@{
+    ViewBag.Title = "Vacancies";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="header-top" id="sticker">
+    <!-- SMALL-LOGO START-->
+    <div class="small-logo">
+        <a rel="home" title="Mandala" href="@Url.Action("index", "home")"><img alt="" src="~/img/Final Posh Brands Logo - Copy.png"></a>
+
+
+        <nav>
+            <ul>
+
+                <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                <li>
+                    <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                </li>
+                <li>
+                    <a href="@Url.Action("home", "jobs")" class="navActive">Careers.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                </li>
+
+                <li><a href="@Url.Action("ContactUs", "home")">Contact Us.</a></li>
+                <li><a href="@Url.Action("index", "CustomerService")">Customer Service.</a></li>
+
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="mobile-menu">
+                        <ul id="mobile-menu">
+
+                            <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                            <li>
+                                <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                            </li>
+                            <li>
+                                <a href="@Url.Action("home", "jobs")" class="navActive" style="color:#dacea4">Careers.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                            </li>
+
+                            <li><a href="@Url.Action("ContactUs", "home")">Contact Us.</a></li>
+                            <li><a href="@Url.Action("index", "CustomerService")">Customer Service.</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SMALL-LOGO END-->
+    <!-- TOP-LINK START-->
+    <ul class="top-link"></ul>
+    <!-- TOP-LINK END-->
+    <!-- MAIN-MENU-AREA START-->
+    <!-- MAIN-MENU-AREA END-->
+</div>
+<div class="careersSubmenuHolder">
+    <div class="careersSubmenuResponsive">Careers</div>
+    <ul class="careersSubmenu">
+
+        <li><a href="@Url.Action("possibilities","jobs")">Possibilities you can work with.</a></li>
+
+        <li><a href="@Url.Action("whywork","jobs")">Why work with us.</a></li>
+
+        <li><a href="@Url.Action("cando","jobs")">What can you do.</a></li>
+
+        <li><a href="@Url.Action("becomeposh","jobs")">Become an Posh Brandsian.</a></li>
+
+        <li class="selected"><a href="@Url.Action("vacancies","jobs")">Vacancies.</a></li>
+
+
+
+
+
+    </ul>
+</div>
+<!--  ABOUT-US-BANNAER-AREA START-->
+<div class="mainHead" style="padding-top: 60px;">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-3 hiddenMobile">
+                <div class="breadCrumbs"><a href="@Url.Action("index","home")">Home</a><span>/</span><a href="@Url.Action("home","jobs")">Careers</a><span>/</span><a href="#">vacancies.</a></div>
+            </div>
+            <div class="col-sm-6 col-xs-12 pageTitleHolder">
+                <h3 class="blockTitle centered">vacancies.</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="MainHeadPlaceHolder_divPageHead" class="pageHead" style="background-image:url('../../img/jobs/4.jpg')">
+    <span id="MainHeadPlaceHolder_spanIcon" class="circleIcon botCircle whatCanYouDo"></span>
+    <div class="container-fluid">
+        <div class="midAlign whiteContent" id="azdBanner">
+            <div class="blockHead row">
+
+                <div id="MainHeadPlaceHolder_divHeadSlogan" class="col-md-9 col-sm-10 centeredBlock greenSlogan">YOU - Face the challenge: join us on the road to success</div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div style="border-top: 1px solid #ccc;" class="blockPad lightGrey">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tableHolder">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="styledTable">
+                        <tbody>
+                            <tr>
+                                <th width="22%">
+                                    Vacancy
+                                </th>
+
+                                <th width="8%">
+                                    City
+                                </th>
+                                <th width="15%">
+                                    Department
+                                </th>
+                                <th width="10%">
+                                    Date posted
+                                </th>
+                                <th width="10%">
+                                    Closing date
+                                </th>
+                                <th width="10%">
+                                    Employement status
+                                </th>
+                                <th width="24%">&nbsp;</th>
+                            </tr>
+                            @foreach (var Jobname in Model)
+                            {
+
+                                <tr>
+                                    <td> <a href="@Url.Action("CreateApplyJob", new {jobId = Jobname.JobId})">@Jobname.JobeName</a></td>
+                                    <td> @Jobname.Location</td>
+                                    <td> @Jobname.Category</td>
+                                    <td> @Jobname.DatePosted.Date.ToString("dd/MM/yyyy")</td>
+                                    <td> @Jobname.ClosingDate.Date.ToString("dd/MM/yyyy")</td>
+                                    <td>@Jobname.Employmentstatus</td>
+                                    <td>
+                                        <a href="@Url.Action("CreateApplyJob", new {jobId = Jobname.JobId})" class="normalBtn favBtn applyBtn31546">Apply</a>
+                                    </td>
+
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

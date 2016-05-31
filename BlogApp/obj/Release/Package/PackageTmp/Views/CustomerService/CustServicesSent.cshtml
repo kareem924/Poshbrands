@@ -1,0 +1,46 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "CustServicesSent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Services Messages</h2>
+
+<br />
+<br />
+<br />
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            <th> Name</th>
+            <th>  Mobile</th>
+            <th>  Subject</th>
+            <th> Message Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var message in ViewBag.onePageOfcontactUss)
+    {
+        <tbody class="table-bordered">
+            <tr>
+                <td> @message.FirstName</td>
+                <td> @message.Mobile</td>
+                <td> @message.Subject</td>
+                <td> @message.CreatedAt</td>
+
+                <td>
+                 
+                    @Html.ActionLink("Read", "CustServicesDetail", new { id = message.CustomerServiceId }, new { @class = "btn btn-info btn-sm" })
+                </td>
+            </tr>
+        </tbody>
+
+    }
+</table>
+<div class="pagedList">
+    @Html.PagedListPager((IPagedList)ViewBag.onePageOfcontactUss, page => Url.Action("CustServicesSent", new { page }))
+</div>
+

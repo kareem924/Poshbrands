@@ -1,0 +1,68 @@
+﻿
+<div data-bind="foreach:comments">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-user"></span>
+            #<span data-bind="text:ID"></span>
+        </div>
+        <div class="panel-body">
+            <span data-bind="text:Body"></span>
+        </div>
+    </div>
+</div>
+<hr />
+<div>
+    <table cellpadding="5" width="90%">
+        <tr>
+            <td>
+                <b> Add Comment </b>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td width="85%">
+                <textarea data-bind="value:Body" class="form-control" style="max-width:750px;" required></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button name="name" value="" data-bind="click:Save" class="btn btn-primary navbar-right">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Add Comment
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+
+@Scripts.Render("~/bundles/Jquery")
+<script src="~/Scripts/knockout-3.1.0.js"></script>
+<script type="text/javascript">
+    function CommentsViewModel() {
+        var self = this;
+        self.comments = ko.observableArray();
+        self.Body = ko.observable();
+
+        self.init = function () {
+            $.getJSON("/Posts/Comments/@ViewContext.RouteData.Values["ID"]", this.comments);
+        }
+
+        self.Save = function () {
+            if (this.Body()) {
+                $.post("/Posts/AddComment", { body: this.Body(), PostID: "@ViewContext.RouteData.Values["ID"]" }, function (data) {
+                    self.comments.push(data);
+                    self.Body("");
+                })
+            }
+        }
+    }
+
+    var viewModel = new CommentsViewModel();
+    viewModel.init();
+
+    ko.applyBindings(viewModel);
+</script>

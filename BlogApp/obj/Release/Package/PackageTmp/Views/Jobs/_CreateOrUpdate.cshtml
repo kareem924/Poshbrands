@@ -1,0 +1,90 @@
+﻿@model BlogApp.Models.Job
+@Html.HiddenFor(p => p.JobId)
+<table class="table table-hover">
+    <tr>
+        <td><label>Job Name</label></td>
+        <td>@Html.TextBoxFor(p => p.JobeName, new { @class = "form-control", placeholder = "IT00-Job Title" })</td>
+    </tr>
+    <tr>
+        <td><label>Department</label></td>
+        <td>@Html.TextBoxFor(p => p.Category, new { @class = "form-control", placeholder = "Department" })</td>
+    </tr>
+    <tr>
+        <td><label>Locations</label></td>
+        <td>@Html.TextBoxFor(p => p.Location, new { @class = "form-control", placeholder = "(Egypt,Alex,City Center),(Egypt,Cairo,HeadOffice)" })</td>
+    </tr>
+    <tr>
+        <td><label>Role Purpose</label></td>
+        <td>@Html.TextBoxFor(p => p.RolePurpose, new { @class = "form-control" })</td>
+    </tr>
+    <tr>
+        <td><label>Job Description</label></td>
+        <td>  @Html.TextAreaFor(p => p.JobDescription, new { @class = "ckeditor", id = "ckeditor" })</td>
+    </tr>
+    <tr>
+        <td><label>Job Responsibilities</label></td>
+        <td> @Html.TextAreaFor(p => p.JobResponsibilities, new { @class = "ckeditor", id = "ckeditor" })</td>
+    </tr>
+    <tr>
+        <td><label>Job Qualifications</label></td>
+        <td> @Html.TextAreaFor(p => p.JobQualifications, new { @class = "ckeditor", id = "ckeditor" })</td>
+    </tr>
+
+    <tr>
+        <td><label>Date Posted</label></td>
+        <td>
+            <div style="position: relative">
+               
+                @Html.TextBoxFor(p=>p.DatePosted,new {@class = "form-control", id= "datetimepicker4"})
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><label>Closing Date</label></td>
+        <td>
+            <div style="position: relative">
+
+                @Html.TextBoxFor(p => p.ClosingDate, new {@class = "form-control", id = "datetimepicker5"})
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td><label>Employment status</label></td>
+        <td>
+            @Html.TextBoxFor(p => p.Employmentstatus, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td><label>Avaialbe</label></td>
+        <td>
+            @Html.CheckBoxFor(p=>p.Available)
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Back to index", "Index", "Categories", new { @class = "btn btn-danger" })</td>
+        <td class="center-block text-center"><button type="submit" class="btn btn-info" style="min-width: 250px;">Create</button></td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#datetimepicker4').datetimepicker({
+
+            format: 'l'
+        });
+        $('#datetimepicker5').datetimepicker({
+
+            format: 'l'
+        });
+    });
+</script>

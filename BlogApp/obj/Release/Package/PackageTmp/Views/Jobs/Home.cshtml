@@ -1,0 +1,279 @@
+﻿@model IEnumerable<BlogApp.Models.Job>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<div class="header-top" id="sticker">
+    <!-- SMALL-LOGO START-->
+    <div class="small-logo">
+        <a rel="home" title="Mandala" href="@Url.Action("index", "home")"><img alt="" src="~/img/Final Posh Brands Logo - Copy.png"></a>
+
+
+        <nav>
+            <ul>
+
+                <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                <li>
+                    <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                </li>
+                <li>
+                    <a href="@Url.Action("home", "jobs")" class="navActive">Careers.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                </li>
+
+                <li><a href="@Url.Action("ContactUs", "home")">Contact Us.</a></li>
+                <li><a href="@Url.Action("index", "CustomerService")">Customer Service.</a></li>
+
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="mobile-menu">
+                        <ul id="mobile-menu">
+
+                            <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                            <li>
+                                <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                            </li>
+                            <li>
+                                <a href="@Url.Action("home", "jobs")" class="navActive" style="color:#dacea4">Careers.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                            </li>
+
+                            <li><a href="@Url.Action("ContactUs", "home")">Contact Us.</a></li>
+                            <li><a href="@Url.Action("index", "CustomerService")">Customer Service.</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SMALL-LOGO END-->
+    <!-- TOP-LINK START-->
+    <ul class="top-link"></ul>
+    <!-- TOP-LINK END-->
+    <!-- MAIN-MENU-AREA START-->
+    <!-- MAIN-MENU-AREA END-->
+</div>
+<div class="careersSubmenuHolder">
+    <div class="careersSubmenuResponsive">Careers</div>
+    <ul class="careersSubmenu">
+
+        <li><a href="@Url.Action("possibilities","jobs")">Possibilities you can work with.</a></li>
+
+        <li><a href="@Url.Action("whywork","jobs")">Why work with us.</a></li>
+
+        <li><a href="@Url.Action("cando","jobs")">What can you do.</a></li>
+
+        <li><a href="@Url.Action("becomeposh","jobs")">Become an Posh Brandsian.</a></li>
+
+        <li><a href="@Url.Action("vacancies","jobs")">Vacancies.</a></li>
+
+
+
+
+
+    </ul>
+</div>
+<!--  ABOUT-US-BANNAER-AREA START-->
+<div class="mainHead" style="padding-top: 60px;">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-3 hiddenMobile">
+                <div class="breadCrumbs"><a href="@Url.Action("index","home")">Home</a><span>/</span><a href="#">Careers</a></div>
+            </div>
+            <div class="col-sm-6 col-xs-12 pageTitleHolder">
+                <h3 class="blockTitle centered">Careers.</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--  ABOUT-US-BANNAER-AREA START-->
+<div class="job-bannaer-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="banner-area">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blockPad lightGrey">
+    <div class="container-fluid">
+        <div class="blockHead row">
+            <h3 class="blockTitle centered">
+                POSSIBILITIES YOU CAN WORK  with.
+            </h3>
+            <div class="col-md-10 centeredBlock greenSlogan">
+                At Posh Brands, we really do Believe in Possibilities and the Values that put them within reach.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 centeredBlock">
+                <div class="row bigInnerSpace margBot40">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="normalText">
+                            Working at Posh Brands opens up a broad range of possibilities for candidates from all walks of life, from students and young graduates to retail professionals and experienced managers.
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="normalText">
+                            Our business model involves us at almost every stage of the retail industry in more than a dozen countries, so we offer a wide variety of positions and locations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="centered"><a href="@Url.Action("possibilities","jobs")" id="ContentPlaceHolder_ControlPossibilities_aLink" class="normalBtn"><span>LEARN MORE.</span></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="image-area">
+
+    <div class="container">
+
+        <div class="row">
+            <h3 class="text-center">We Believe In.</h3>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="image-area-col">
+                    <img src="~/img/about-us/right.png" class="center-block" />
+                    <h4 class="text-center">Do The Right Thing</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="image-area-col">
+                    <img src="~/img/about-us/Untitled-1.png" class="center-block" />
+                    <h4 class="text-center">Show We Care</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="image-area-col">
+                    <img src="~/img/about-us/Untitled-6.png" class="center-block" />
+                    <h4 class="text-center">Celebrate Difference</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="image-area-col">
+                    <img src="~/img/about-us/Untitled-111.png" class="center-block" />
+                    <h4 class="text-center">Aim Higher</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blockPad">
+    <span id="ContentPlaceHolder_ControlWhyWorkWithUs_spanIcon" class="circleIcon whatCanYouDo"></span>
+    <div class="container-fluid">
+        <div class="blockHead row">
+            <h3 class="blockTitle centered">WHY WORK WITH US?</h3>
+            <div class="col-md-10 centeredBlock greenSlogan">One question, many answers.</div>
+        </div>
+        <div class="row margBot40">
+            <div class="col-md-10 centeredBlock oneQMAHolder">
+                <div class="row bigInnerSpace">
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="ContentPlaceHolder_ControlWhyWorkWithUs_rptNodes_divImg_0" class="oneQMAIcon" style="background-image: url('../../img/1709Image.png');"></div>
+                        <div class="normalText">Vibrant multicultural environment at a stable, well-established company</div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="ContentPlaceHolder_ControlWhyWorkWithUs_rptNodes_divImg_1" class="oneQMAIcon" style="background-image: url('../../img/1710Image.png');"></div>
+                        <div class="normalText">Customized training and focused career development programs</div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <div id="ContentPlaceHolder_ControlWhyWorkWithUs_rptNodes_divImg_2" class="oneQMAIcon" style="background-image: url('../../img/1711Image.png');"></div>
+                        <div class="normalText">Rich diversity of brands, business lines, locations, and job types, including both full- and part-time positions</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="centered"><a href="@Url.Action("whywork","jobs")" id="ContentPlaceHolder_ControlWhyWorkWithUs_aLearnMore" class="normalBtn"><span>LEARN MORE.</span></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ContentPlaceHolder_ControlWhatCanYouDo_divBanner" class="bgBlock landingsHeight" style="background-image: url('http://www.azadea.com/contentfiles/1659BlockImage.jpg');">
+    <span id="ContentPlaceHolder_ControlWhatCanYouDo_spanIcon" class="circleIcon whatCanYouDo"></span>
+    <div class="container-fluid">
+        <div class="midAlign whiteContent">
+            <div class="blockHead row">
+                <h3 class="blockTitle centered">
+                    What Can You Do.
+                </h3>
+                <div class="col-md-9 centeredBlock greenSlogan">
+                    YOU - Face the challenge: join us on the road to success:
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="centered"><a href="@Url.Action("cando","jobs")" id="ContentPlaceHolder_ControlWhyWorkWithUs_aLearnMore" class="normalBtn"><span>LEARN MORE.</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blockPad">
+    <span id="ContentPlaceHolder_spanIcon" class="circleIcon happeningsIcon"></span>
+    <div id="ContentPlaceHolder_divVacancies" class="container-fluid">
+        <div class="blockHead row">
+            <h3 class="blockTitle centered">CURRENT VACANCIES.</h3>
+        </div>
+        <div class="row margBot40">
+            <div class="col-md-9 col-sm-9 centeredBlock vacancyList">
+                <div class="row bigInnerSpace">
+                    @foreach (var Jobname in Model)
+                    {
+                        <div class="col-md-4 col-sm-6 itemList">
+                            <h4 class="listTitle"><a href="@Url.Action("CreateApplyJob", new {jobId = Jobname.JobId})" >@Jobname.JobeName</a></h4>
+                            <div class="posTitle">
+                                @Jobname.Category
+                            </div>
+                            <div class="dateAndLocation">
+                                @Jobname.Location
+                                @Jobname.DatePosted.Date.ToString("dd/MM/yyyy")
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="centered"><a href="@Url.Action("Vacancies","Jobs")" id="ContentPlaceHolder_aViewAll" class="normalBtn"><span>VIEW ALL VACANCIES.</span></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+

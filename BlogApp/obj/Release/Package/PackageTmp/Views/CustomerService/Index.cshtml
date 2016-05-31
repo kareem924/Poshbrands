@@ -1,0 +1,344 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="header-top" id="sticker">
+    <!-- SMALL-LOGO START-->
+    <div class="small-logo">
+        <a rel="home" title="Mandala" href="@Url.Action("index", "home")"><img alt="" src="~/img/Final Posh Brands Logo - Copy.png"></a>
+
+
+        <nav>
+            <ul>
+
+                <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                <li>
+                    <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                </li>
+                <li>
+                    <a href="@Url.Action("home", "jobs")">Careers.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                </li>
+
+                <li><a href="@Url.Action("ContactUs", "home")">Contact Us.</a></li>
+                <li><a href="@Url.Action("index", "CustomerService")" class="navActive">Customer Service.</a></li>
+
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="mobile-menu">
+                        <ul id="mobile-menu">
+
+                            <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                            <li>
+                                <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                            </li>
+                            <li>
+                                <a href="@Url.Action("home", "jobs")">Careers.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                            </li>
+
+                            <li><a href="@Url.Action("ContactUs", "home")">Contact Us.</a></li>
+                            <li><a href="@Url.Action("index", "CustomerService")" class="navActive" style="color:#dacea4">Customer Service.</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SMALL-LOGO END-->
+    <!-- TOP-LINK START-->
+    <ul class="top-link"></ul>
+    <!-- TOP-LINK END-->
+    <!-- MAIN-MENU-AREA START-->
+    <!-- MAIN-MENU-AREA END-->
+</div>
+<!--  ABOUT-US-BANNAER-AREA START-->
+<div class="mainHead">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-3 hiddenMobile">
+                <div class="breadCrumbs"><a href="@Url.Action("index","home")">Home</a><span>/</span><a href="#">Customer Service.</a></div>
+            </div>
+            <div class="col-sm-6 col-xs-12 pageTitleHolder">
+                <h3 class="blockTitle centered">Customer Service.</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="MainHeadPlaceHolder_divPageHead" class="pageHead" style="background-image:url(../../img/contact-us1.jpg);">
+    <span id="MainHeadPlaceHolder_spanIcon" class="circleIcon botCircle csIcon ">
+        <img class="center-block" src="~/img/service.png" style="padding-top: 10px;" />
+    </span>
+    <div class="container-fluid">
+        <div class="midAlign whiteContent" id="azdBanner">
+            <div class="blockHead row">
+
+                <div class="col-md-9 col-sm-10 centeredBlock greenSlogan">Please help us get your message to the right place by clicking the option that best describes you</div>
+            </div>
+
+        
+            <div class="row headForm">
+                <div class="col-md-4 col-sm-8 col-xs-10 centeredBlock">
+
+                    <div style="display: block;" >
+                        <div>
+
+                            <div class="row smallFormInputs">
+                                <label class="col-sm-3 col-xs-12 mobileCentered">I am a</label>
+                                <div class="col-sm-9 col-xs-12">
+                                    <div class="selectMain">
+
+                                        <select style="width: 263px; position: absolute; opacity: 0; height: 36px; font-size: 13px;" class="hasCustomSelect rendered" id="select1">
+                                            <option value="Customer">Customer.</option>
+                                            <option value="Supplier">Supplier.</option>
+                                            <option value="Business Partner">Business Partner.</option>
+                                            <option value="Other">Other.</option>
+                                        </select>
+                                        <span style="display: inline-block;" class="customSelect"><span style="width: 293px; display: inline-block;" class="customSelectInner" id="spanselect1">Customer</span></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="blockPad">
+    <div class="container-fluid">
+        <div class="blockHead row">
+
+            <div id="ContentPlaceHolder_divSummary" class="col-xs-9 centeredBlock greenSlogan">Our Customer Service team is here to help you get the most out of the POSH BRANDS experience, so please call us at:</div>
+        </div>
+        <div class="panel panel-@ViewBag.Status">
+            <div class="panel-heading">
+                @ViewBag.Message
+            </div>
+        </div>
+        <div id="ContentPlaceHolder_divBody" class="centered">
+            <div><span class="phoneNumber">+02 226 065 59</span></div>
+            <div>Sunday through Thursday, 9AM-6PM Cairo time</div>
+        </div>
+    </div>
+</div>
+<div class="blockPad lightGrey">
+    <div class="container-fluid">
+        <div class="blockHead row">
+            <div id="ContentPlaceHolder_divFormSlogan" class="col-xs-9 centeredBlock greenSlogan">Or fill in the form below to help us assist you:</div>
+            <div class="sloganSmall centered">* required fields</div>
+        </div>
+        <div class="col-md-8 col-xs-12 centeredBlock">
+            @using (Html.BeginForm("Index", "CustomerService", FormMethod.Post, new {enctype = "multipart/form-data"}))
+            {
+                <div class="row bigInnerSpace formFields">
+
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                       
+                        <input name="FirstName"  placeholder="First Name *" type="text">
+
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                        
+                        <input name="LastName"  placeholder="Last Name *" type="text">
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                      
+                        <input name="Mobile"  placeholder="Mobile *" type="text">
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                       
+                        <input name="Email"  placeholder="Email *" type="text">
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                        <input name="Subject"  placeholder="Subject" type="text">
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                        <span class="errorMessage" style="display: none;"></span>
+                        <span  validationtype="dropdown" errormessagetext="required" style="visibility: hidden;"></span>
+                        <div class="selectMain">
+                            <select style="width: 263px; position: absolute; opacity: 0; height: 36px; font-size: 13px;" class="hasCustomSelect rendered" id="select2" name="Preference">
+                                <option value="Contact Preference ">Contact Preference *</option>
+                                <option value="Email">Email.</option>
+                                <option value="Mobile">Mobile.</option>
+                                <option value="Mobile and Email">Mobile and Email.</option>
+                            </select>
+                            <span style="display: inline-block;" class="customSelect"><span style="width: 293px; display: inline-block;" class="customSelectInner" id="spanselect2"></span></span>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+
+                        <div class="selectMain">
+                            <select style="width: 335px; position: absolute; opacity: 0; height: 46px; font-size: 16px;" class="hasCustomSelect rendered" id="select3" name="Brand">
+                                <option value="Brand">Brand</option>
+                                <option value="CR7">CR7</option>
+                            </select><span style="display: inline-block;" class="customSelect"><span style="width: 293px; display: inline-block;" class="customSelectInner" id="spanselect3">Brand</span></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+
+                        <div class="selectMain">
+                            <select style="width: 335px; position: absolute; opacity: 0; height: 46px; font-size: 16px;" class="hasCustomSelect rendered" disabled="disabled" id="select4" name="Branch">
+                                <option value="Branch">Branch</option>
+                                <option value="City Centre Alex">City Centre Alex</option>
+                                <option value="Mall Of Egypt">Mall Of Egypt</option>
+
+
+                            </select><span style="display: inline-block;" class="customSelect"><span style="width: 293px; display: inline-block;" class="customSelectInner" id="spanselect4">Branch.</span></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 centeredBlock borderSep"></div>
+
+
+
+                    <div class="col-xs-12 inputEntity">
+                       
+                        <textarea name="Message" rows="2" cols="20"  placeholder="Message *"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="centered formButtonsMain">
+                            <button class="normalBtn" type="submit"><span>Submit.</span></button>
+                            <button class="normalBtn" type="reset"><span>Clear.</span></button>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div id="ContentPlaceHolder_RadAjaxManager1SU" style="display: block;">
+    <span id="ctl00_ContentPlaceHolder_RadAjaxManager1" style="display:none;"></span>
+</div>
+<div id="FAQ"></div>
+<div id="ContentPlaceHolder_ControlFAQ1_divHolder" class="bgBlock landingsHeight" style="background-image:url(../../img/hero_slide_2.jpg);"></div>
+<div class="blockPad">
+    <span id="ContentPlaceHolder_ControlFAQ1_spanIcon" class="circleIcon faqIcon"></span>
+    <div class="container-fluid">
+        <div class="blockHead row">
+            <h3 class="blockTitle centered">Frequently asked questions.</h3>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="accMain">
+                    <div class="accMain">
+                        <div class="toggleItem">
+                            <div class="toggleTitle"><span class="numberIcon">1.</span>What posh brands does the Posh Brands operate?</div>
+                            <div class="toggleContent">
+                                <ul>
+                                    <li><a href="@Url.Action("ourbrands", "home")">visit our brands</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="toggleItem">
+                            <div class="toggleTitle"><span class="numberIcon">2.</span>Do Posh Brands offer alteration services?</div>
+                            <div class="toggleContent">
+                                <ul>
+                                    <li>Most do, and many of those offer these services free of charge, but details vary from brand to brand , so please ask in-store.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="toggleItem">
+                            <div class="toggleTitle"><span class="numberIcon">3.</span>How can I make sure I get notified about sales and promotions at Posh Brands stores?</div>
+                            <div class="toggleContent">
+                                <ul>
+                                    <li> We make it easy: Just click <a href="@Url.Action("contactus", "home")">here </a> and register.</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                        <div class="toggleItem">
+                            <div class="toggleTitle"><span class="numberIcon">4.</span>How often does Posh Brands have sale events?</div>
+                            <div class="toggleContent">
+                                <ul>
+                                    <li>  In addition to events planned by individual brands, Posh Brands stores hold two network-wide sales every year, one for Fall/Winter and another for Spring/Summer. Stay up to date with our sales and promotion news by clicking <a href="@Url.Action("contactus", "home")">here</a> to register.</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="toggleItem">
+                            <div class="toggleTitle"><span class="numberIcon">5.</span>Exchange And Refund Policy.</div>
+                            <div class="toggleContent">
+                                <ul>
+                                    <li>  All Posh brands`s brands have their own refund and exchanges policies, which follow industry standards but vary according to the laws and regulations applying in the countries where they operate. Please inquire in-store to learn more about the respective policies and procedures in place, or check the back of your purchase receipt.</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+        
+        $('#select1').on('change', function () {
+
+            var value = this.value;
+         
+            $('#spanselect1').text(value)
+        });
+        $('#select2').on('change', function () {
+
+            var value = this.value;
+        
+            $('#spanselect2').text(value)
+        });
+        $('#select3').on('change', function () {
+
+            var value = this.value;
+        
+            $('#spanselect3').text(value)
+            if (value == "CR7") {
+                $('#select4').removeAttr('disabled');
+            }
+            else {
+                $('#select4').attr('disabled', 'disabled');
+            }
+        });
+        $('#select4').on('change', function () {
+
+            var value = this.value;
+         
+            $('#spanselect4').text(value)
+        });
+</script>
+

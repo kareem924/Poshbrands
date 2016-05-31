@@ -1,0 +1,57 @@
+﻿@model BlogApp.Models.CustService
+@{
+    ViewBag.Title = "CustServicesDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CustServicesDetail</h2>
+<div>
+
+    <hr />
+    <table class="table table-hover">
+        <tr>
+            <td><h4>Name</h4></td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td><h4>Last Name</h4></td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td><h4>Mobile</h4></td>
+            <td>@Model.Mobile</td>
+        </tr>
+        <tr>
+            <td><h4>Email</h4></td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td><h4>subject</h4></td>
+            <td>@Model.Subject</td>
+        </tr>
+        <tr>
+            <td><h4>Message</h4></td>
+            <td>@Model.Message</td>
+        </tr>
+        <tr>
+            <td><h4>Preference</h4></td>
+            <td>@Model.Preference</td>
+        </tr>
+        <tr>
+            <td><h4>Brand</h4></td>
+            <td>@Model.Brand</td>
+        </tr>
+        <tr>
+            <td><h4>Branch</h4></td>
+            <td>@Model.Branch</td>
+        </tr>
+        <tr>
+            <td><h4>Create At</h4></td>
+            <td>@Model.CreatedAt</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a class="btn btn-success btn-lg" href="@Url.Action("ContactUsSent","Home")">Back</a></td>
+        </tr>
+    </table>
+</div>

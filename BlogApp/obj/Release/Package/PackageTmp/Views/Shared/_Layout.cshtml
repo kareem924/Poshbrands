@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/select2-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/select2.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/vendor/modernizr-2.8.3.min.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+
+                <a rel="home" href="@Url.Action("index", "home")"><img alt="" style="width: 174px;margin-top: 7px;" src="~/img/Final Posh Brands Logo - Copy.png"></a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (User.IsInRole("job"))
+                        {
+                            <li>@Html.ActionLink("Jobs", "Index", "Jobs")</li>
+                        }
+                        <li>
+                            <a href="@Url.Action("Index", "Notification")">
+                                Notification
+                                @if (ViewBag.notifications != null)
+                                {
+                                    if (((int)ViewBag.notifications) > 0)
+                                    {
+                                        <span class="label label-warning label-as-badge">
+                                            @ViewBag.notifications
+                                        </span>
+                                    }
+                                }
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="#">
+                                Applied CV
+                                @if (ViewBag.jobNotifications != null)
+                                {
+                                    if (((int)ViewBag.jobNotifications) > 0)
+                                    {
+                                        <span class="label label-success label-as-badge">
+                                            @ViewBag.jobNotifications
+                                        </span>
+                                    }
+                                }
+                            </a>
+
+                        </li>
+
+                        if (User.IsInRole("contact us"))
+                        {
+                            <li>
+                                <a href="@Url.Action("ContactUsSent", "Home")">
+                                    Contact Us
+                                    @if (ViewBag.contactUsnotifications != null)
+                                    {
+                                        if (((int)ViewBag.contactUsnotifications) > 0)
+                                        {
+                                            <span class="label label-info label-as-badge">
+                                                @ViewBag.contactUsnotifications
+                                            </span>
+                                        }
+                                    }
+                                </a>
+                            </li>
+                        }
+                        if (User.IsInRole("customer service"))
+                        {
+                            <li>
+                                <a href="@Url.Action("CustServicesSent", "CustomerService")">
+                                    Cutsomer Service
+                                    @if (ViewBag.customerServicenotifications != null)
+                                    {
+                                        if (((int)ViewBag.customerServicenotifications) > 0)
+                                        {
+                                            <span class="label label-danger label-as-badge">
+                                                @ViewBag.customerServicenotifications
+                                            </span>
+                                        }
+                                    }
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - POSHBRANDS</p>
+        </footer>
+    </div>
+
+
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $(function () {
+            $.validator.methods.date = function (value, element) {
+                if ($.browser.webkit) {
+
+                    //ES - Chrome does not use the locale when new Date objects instantiated:
+                    var d = new Date();
+
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                }
+                else {
+
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "AppliedJob";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AppliedJob</h2>
+
+<br/>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            <th> Employee Name</th>
+            <th>  Employee Mobile</th>
+            <th>  Employee Email</th>
+            <th> Apply Date</th>
+      
+        </tr>
+    </thead>
+    @foreach (var Job in ViewBag.onePageOfApplyJob)
+    {
+        <tbody class="table-bordered">
+            <tr>
+                <td> @Job.EmployeeName</td>
+                <td> @Job.EmployeeMobile</td>
+                <td> @Job.EmployeeEmail</td>
+                <td> @Job.ApplyDate</td>
+              
+                <td>
+                    @Html.ActionLink("Download Cv", "Download", new { id = Job.JobApplyId }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        </tbody>
+
+    }
+</table>
+<div class="pagedList">
+    @Html.PagedListPager((IPagedList)ViewBag.onePageOfApplyJob, page => Url.Action("Index", new { page }))
+</div>

@@ -1,0 +1,232 @@
+﻿@model BlogApp.Models.ContactUs
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<div class="header-top" id="sticker">
+    <!-- SMALL-LOGO START-->
+    <div class="small-logo">
+        <a rel="home" title="Mandala" href="@Url.Action("index", "home")"><img alt="" src="~/img/Final Posh Brands Logo - Copy.png"></a>
+
+
+        <nav>
+            <ul>
+
+                <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                <li>
+                    <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                </li>
+                <li>
+                    <a href="@Url.Action("home", "jobs")">Careers.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                </li>
+
+                <li><a href="@Url.Action("ContactUs", "home")" class="navActive">Contact Us.</a></li>
+                <li><a href="@Url.Action("index", "CustomerService")">Customer Service.</a></li>
+                @*<li><a href="@Url.Action("ContactUs", "home")">Customer Service</a></li>
+                    <li><a href="@Url.Action("ContactUs", "home")">Investor relation</a></li>*@
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="mobile-menu">
+                        <ul id="mobile-menu">
+
+                            <li><a href="@Url.Action("about", "home")">WHO WE ARE.</a></li>
+                            <li>
+                                <a href="@Url.Action("ourbrands", "home")">Our Brands.</a>
+
+                            </li>
+                            <li>
+                                <a href="@Url.Action("home", "jobs")">Careers.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Gallery", "home")">Gallery.</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("MediaCenter", "home")">MEDIA CENTER.</a>
+                            </li>
+
+                            <li><a href="@Url.Action("ContactUs", "home")" class="navActive" style="color:#dacea4">Contact Us.</a></li>
+                            <li><a href="@Url.Action("index", "CustomerService")">Customer Service.</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SMALL-LOGO END-->
+    <!-- TOP-LINK START-->
+    <ul class="top-link"></ul>
+    <!-- TOP-LINK END-->
+    <!-- MAIN-MENU-AREA START-->
+    <!-- MAIN-MENU-AREA END-->
+</div>
+<!--  ABOUT-US-BANNAER-AREA START-->
+<div class="mainHead">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-3 hiddenMobile">
+                <div class="breadCrumbs"><a href="@Url.Action("index","home")">Home</a><span>/</span><a href="#">Contact Us</a></div>
+            </div>
+            <div class="col-sm-6 col-xs-12 pageTitleHolder">
+                <h3 class="blockTitle centered">Contact Us.</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--  ABOUT-US-BANNAER-AREA START-->
+
+<div id="MainHeadPlaceHolder_divPageHead" class="pageHead" style="background-image:url('../../img/customer service/33TopBannerImage.jpg');">
+    <span class="circleIcon botCircle locIcon">
+        <img class="center-block" src="~/img/located.png" style="padding-top: 10px;" />
+    </span>
+    <div class="container-fluid">
+        <div class="midAlign whiteContent" id="azdBanner">
+            <div class="blockHead row">
+
+                <div class="col-md-9 col-sm-10 centeredBlock greenSlogan">Please help us get your message to the right place by clicking the option that best describes you</div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!--  ABOUT-US-BANNAER-AREA END-->
+<div class="blockPad lightGrey">
+    <span class="circleIcon locIcon">
+        <img class="center-block" src="~/img/located.png" style="padding-top: 10px;" />
+    </span>
+    <div class="container-fluid">
+        <div class="panel panel-@ViewBag.Status">
+            <div class="panel-heading">
+                @ViewBag.Message
+            </div>
+        </div>
+        <div class="blockHead row">
+            <h3 class="blockTitle centered">
+                we are located in.
+
+            </h3>
+        </div>
+        <div class="row sameHeightPads contactList">
+
+
+            <div class="col-sm-12">
+                <div class="contactItem sameHeightEntity">
+                    <div class="greenTitle">Posh Brands Headquarters.</div>
+                    <div class="locaDescMinHeight">
+                        <div class="normalText margBot10">21 Dr.Zaki Hassan Street, Cairo, Egypt</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div><span class="phoneNumber normalFont"><label>Phone Number</label><a href="tel:+02 226 065 59">+02 226 065 59</a></span></div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div><span class="phoneNumber normalFont poBoxIcon"><label>P.O. Box</label>11511</span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div><span class="phoneNumber normalFont faxIcon"><label>Fax</label><a href="tel:+02 226 065 59 ">+02 226 065 59 </a></span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div><span class="phoneNumber normalFont mailIcon"><label>Email</label><a href="mailto:nfo@poshbrands.com ">Info@poshbrands.com.eg </a></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="blockPad lightGrey">
+    <div class="container-fluid">
+        <div class="blockHead row">
+            <div id="ContentPlaceHolder_divFormSlogan" class="col-xs-9 centeredBlock greenSlogan">Or fill in the form below to help us assist you:</div>
+            <div class="sloganSmall centered">* required fields</div>
+        </div>
+        <div class="col-md-8 col-xs-12 centeredBlock">
+            @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row bigInnerSpace formFields">
+
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+
+                        <input name="Name" placeholder="First Name *" type="text">
+
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+
+                        <input name="LastName" id="ContentPlaceHolder_txtLastName" placeholder="Last Name *" type="text">
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+
+                        <input name="Mobile" placeholder="Mobile *" type="text">
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+
+                        <input name="Email" placeholder="Email *" type="text">
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                        <input name="Subject" placeholder="Subject" type="text">
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputEntity">
+                        <span class="errorMessage" style="display: none;"></span>
+                        <span id="ContentPlaceHolder_customValidatorContactPreference" validationtype="dropdown" errormessagetext="required" style="visibility: hidden;"></span>
+                        <div class="selectMain">
+                            <select style="width: 335px; position: absolute; opacity: 0; height: 46px; font-size: 16px;" class="hasCustomSelect rendered" name="ctl00$ContentPlaceHolder$ddlContactPreference" id="select1">
+                                <option value="0">Contact Preference *</option>
+                                <option value="Email">Email</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Mobile and Email">Mobile and Email</option>
+
+                            </select><span style="display: inline-block;" class="customSelect"><span style="width: 293px; display: inline-block;" class="customSelectInner" id="spanselect1">Contact Preference *</span></span>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-xs-12 inputEntity">
+
+                        <textarea name="Message" rows="2" cols="20" placeholder="Message *"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="centered formButtonsMain">
+                            <button class="normalBtn" type="submit"><span>Submit.</span></button>
+                            <button class="normalBtn" type="reset"><span>Clear.</span></button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#select1').on('change', function () {
+
+            var value = this.value;
+
+            $('#spanselect1').text(value)
+        });
+    });
+</script>

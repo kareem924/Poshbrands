@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BlogApp.Models.UserRoleViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register", "Account", null, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>Roles </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @foreach (var role in item.Roles)
+                {
+                    <span>@role.RoleName</span>
+                }
+            </td>
+            @if (string.Compare(User.Identity.Name, "Admin", true) == 0)
+            {
+                <td>
+                    @Html.ActionLink("Change Role", "Edit", new { userid = item.UserId }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { userid = item.UserId }, new { @class = "btn btn-danger" })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,70 @@
+﻿@using Microsoft.Ajax.Utilities
+@using PagedList
+@using PagedList.Mvc
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+
+<div class="container">
+    <div class="row" style="padding-top: 10px;padding-bottom: 20px">
+        @Html.ActionLink("Create new Job", "Create", "Categories", new { @class = "btn btn-success" })
+    </div>
+    <div class="row" style="padding-bottom: 30px;">
+        @using (@Html.BeginForm("Index", "Jobs", FormMethod.Post, new { @class = "form-inline" }))
+        {
+
+            <div class="form-group">
+                <label>Job Name</label>
+                @Html.TextBox("JobeName", "", new { @class = "form-control", PlaceHolder = "Search" })
+
+            </div>
+
+            <input type="submit" class="btn btn-warning" value="Search" />
+        }
+    </div>
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+
+
+                <th> Jobe Name</th>
+                <th>  Department</th>
+                <th>  Location</th>
+                <th> Start Date</th>
+                <th> Close Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        @foreach (var Job in ViewBag.onePageOfJobs)
+            {
+            <tbody class="table-bordered">
+                <tr>
+                    <td>  @Job.JobeName</td>
+                    <td> @Job.Category</td>
+                    <td> @Job.Location</td>
+                    <td> @Job.DatePosted</td>
+                    <td> @Job.ClosingDate</td>
+                    <th>@Job.Available</th>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = Job.JobId }, new { @class = "btn  btn-info btn-sm" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = Job.JobId }, new { @class = "btn btn-danger btn-sm" })
+                        @Html.ActionLink("Applied CV", "AppliedJob", new { id = Job.JobId }, new { @class = "btn btn-primary btn-sm" })
+                    </td>
+
+                </tr>
+            </tbody>
+
+        }
+
+    </table>
+    <div class="pagedList">
+        @Html.PagedListPager((IPagedList)ViewBag.onePageOfJobs, page => Url.Action("Index", new { page }))
+    </div>
+</div>

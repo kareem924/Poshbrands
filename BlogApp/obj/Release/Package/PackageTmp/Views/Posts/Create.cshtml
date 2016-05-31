@@ -1,0 +1,71 @@
+﻿@model BlogApp.Models.Post
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <table class="table">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Title)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Content)
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.Content, new { @class = "ckeditor", id = "ckeditor" })
+                @Html.ValidationMessageFor(model => model.Content)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Tags)
+            </td>
+            <td>
+                <input type="hidden" name="tags" id="tags" style="width:600px" tabindex="-1" class="select2-offscreen form-control">
+                <div class="select2-container select2-container-multi" id="s2id_e20" style="width: 600px;">
+                </div>
+
+                <p>
+                    You can type more than one tag using comma (ex: "mvc,razor" )
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="name" value="Create" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+}
+@section scripts{
+    <script src="~/Scripts/jquery-2.1.0.min.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <link href="~/Scripts/select2-3.4.5/select2.css" rel="stylesheet" />
+    <link href="~/Scripts/select2-3.4.5/select2-bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/select2-3.4.5/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var options = { tokenSeparators: [","], tags: [] };
+            $.getJSON("/posts/AutoTags", function (data) {
+                options.tags = data;
+                $("#tags").select2(options);
+            });
+
+        });
+
+        CKEDITOR.replace('ckeditor', { filebrowserImageUploadUrl: '/Uploader/Upload', filebrowserImageBrowseUrl: "/Uploads" });
+    </script>
+}

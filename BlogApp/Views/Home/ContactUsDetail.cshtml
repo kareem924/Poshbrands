@@ -1,0 +1,48 @@
+﻿@model BlogApp.Models.ContactUs
+
+@{
+    ViewBag.Title = "ContactUsDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ContactUsDetail</h2>
+
+<div>
+
+    <hr />
+    <table class="table table-hover">
+        <tr>
+            <td><h4>Name</h4></td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td><h4>Last Name</h4></td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td><h4>Mobile</h4></td>
+            <td>@Model.Mobile</td>
+        </tr>
+        <tr>
+            <td><h4>Email</h4></td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td><h4>subject</h4></td>
+            <td>@Model.Subject</td>
+        </tr>
+        <tr>
+            <td><h4>Message</h4></td>
+            <td>@Model.Message</td>
+        </tr>
+        <tr>
+            <td><h4>Create At</h4></td>
+            <td>@Model.CreatedAt</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a class="btn btn-success btn-lg" href="@Url.Action("ContactUsSent","Home")">Back</a></td>
+        </tr>
+    </table>
+</div>
+
